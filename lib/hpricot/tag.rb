@@ -97,6 +97,9 @@ module Hpricot
       %{#{" " * depth}} + name + "\n" +
         (children ? children.map { |x| x.inspect_tree(depth + 1) }.join : "")
     end
+    def remove
+      parent.children.delete(self)
+    end
   end
 
   class BogusETag
